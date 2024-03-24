@@ -1,38 +1,202 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #190934;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.header {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #190934;
+  color: #fecf6a;
+  text-transform: uppercase;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  display: flex;
+
+  h1 {
+    letter-spacing: 1px;
+    font-size: 50px;
+    border-bottom: 4px solid #fecf6a;
+  }
+  h3 {
+    font-family: "Arial Narrow";
+    font-size: 20px;
+    color: #17688a;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+.selecto {
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  border: 3px solid #e96559;
+  border-radius: 5px;
+  background-color: #190934;
+  color: #e96559;
+  appearance: none;
+  margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.selecto:hover {
+  outline: none;
+  border-color: #fecf6a;
+}
+
+.selecto option:hover {
+  background-color: blanchedalmond;
+}
+
+.itemBtn {
+  height: 30px;
+  margin-left: 5px;
+}
+
+.itemsDiv {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.itemItem {
+  margin: 20px 10px 20px 10px;
+  background-color: #190934;
+  color: #fecf6a;
+  border: 3px solid #fecf6a;
+  padding: 0 10px 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  border-radius: 20px;
+  h2 {
+    display: flex;
+    justify-content: space-between;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.itemChecked {
+  margin: 20px 10px 20px 10px;
+  background-color: #190934;
+  color: #17688a;
+  border: 3px solid #17688a;
+  padding: 0 10px 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  border-radius: 20px;
+  h2 {
+    display: flex;
+    justify-content: space-between;
   }
+}
+
+h3:hover {
+  color: #e96559;
+}
+.btnDiv {
+  display: flex;
+  width: 30%;
+  align-items: center;
+}
+
+.contentWrapper {
+  justify-content: space-between;
+  align-items: center;
+  width: 280px;
+}
+
+.selectNum {
+  padding: 2px;
+  font-size: 16px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: #fecf6a;
+  color: #17688a;
+  border: 3px solid #fecf6a;
+  outline: none;
+  cursor: pointer;
+}
+
+#tasks {
+  background-color: #17688a;
+  color: #fecf6a;
+  outline: none;
+  font-size: medium;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  border: none;
+  padding: 2px 2px 2px 8px;
+  margin: 10px 10px 0px 10px;
+}
+
+#tasks::placeholder {
+  color: #190934;
+  transition: opacity 0.3s ease;
+}
+
+.tasko:hover::placeholder {
+  opacity: 0.5;
+}
+
+.formo {
+  .selectNum,
+  .tasko,
+  button {
+    height: 30px;
+  }
+}
+
+.formBtn {
+  border: none;
+  font-size: medium;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: #fecf6a;
+  color: #17688a;
+  padding: 2px 8px 2px 8px;
+  transition: background-color 0.3s;
+}
+
+.formBtn:hover {
+  background-color: #17688a;
+  color: #fecf6a;
+  cursor: pointer;
+}
+
+.clearBtn {
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  border: 3px solid #17688a;
+  border-radius: 5px;
+  background-color: #190934;
+  color: #17688a;
+  appearance: none;
+  margin-top: 40px;
+  margin-bottom: 8px;
+}
+
+.clearBtn:hover {
+  border: 3px solid #e96559;
+}
+
+.footer {
+  background-color: #190934;
+  bottom: 0;
+  margin-top: auto;
+  text-align: center; /* Align text to the center */
+  padding: 4px 0; /* Add padding for better spacing */
+  font-size: medium;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.perc {
+  font-size: 34px;
+  color: #fecf6a;
+}
+
+p {
+  color: #17688a;
+  font-size: 18px;
 }
