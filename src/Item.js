@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Item({ itemObj, deleteItem, checkItem }) {
+function Item({ itemObj, deleteItem, checkItem, editItem }) {
   return (
     <div className={itemObj.isChecked ? "itemChecked" : "itemItem"}>
       <div className="contentWrapper">
@@ -10,6 +10,16 @@ function Item({ itemObj, deleteItem, checkItem }) {
             {itemObj.name}
           </div>
           <div className="btnDiv">
+            <input
+              type="image"
+              id="trashBtn"
+              className="itemBtn"
+              src={itemObj.isChecked ? "../checkedEdit.png" : "../editIcon.png"}
+              alt="Discard"
+              onClick={() =>
+                editItem(itemObj.id, itemObj.name, itemObj.quantity)
+              }
+            ></input>
             <input
               type="image"
               id="trashBtn"

@@ -10,6 +10,12 @@ function App() {
   const [items, setItems] = useState([]);
   //  const [countItem, setCountItem] = useState(0);
   const [sortBy, setSortBy] = useState("input");
+  const [isOpen, setIsOpen] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const [editedItemId, setEditedItemId] = useState(null); // State for tracking the edited item ID
+  const [editedItemName, setEditedItemName] = useState("");
+  const [editedItemQ, setEditedItemQ] = useState("");
+
   let sortedItems;
 
   if (sortBy === "input") sortedItems = items;
@@ -25,7 +31,19 @@ function App() {
   }
 
   function deleteItem(id) {
-    setItems((toBeDelItems) => toBeDelItems.filter((item) => item.id !== id));
+    const confirmed = window.confirm(
+      "Are you sure you want to clear the list?"
+    );
+    if (confirmed) {
+      setItems((toBeDelItems) => toBeDelItems.filter((item) => item.id !== id));
+    }
+  }
+
+  function editItem(id, name, quantity) {
+    setEditedItemId(id);
+    setEditedItemName(name);
+    setEditedItemQ(quantity);
+    setIsOpen(true);
   }
 
   function checkItem(theArray) {
@@ -35,8 +53,13 @@ function App() {
       }
       return item;
     });
-    setItems(updatedItems);
-    console.log(updatedItems);
+    const confirmed = window.confirm(
+      "Are you sure you want to check the list item? You cannot uncheck it afterwards."
+    );
+    if (confirmed) {
+      setItems(updatedItems);
+      console.log(updatedItems);
+    }
   }
 
   function handleClearList() {
@@ -48,8 +71,57 @@ function App() {
     }
   }
 
+  const handleCancel = () => {
+    setIsOpen(false);
+  };
+
+  const handleSave = () => {
+    // Update the item's details in the state
+    const updatedItems = items.map((item) => {
+      if (item.id === editedItemId) {
+        return { ...item, name: editedItemName, quantity: editedItemQ };
+      }
+      return item;
+    });
+    setItems(updatedItems);
+    console.log(updatedItems);
+    setIsOpen(false); // Close the modal
+  };
+
   return (
     <div className="App">
+      {isOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <div>Edit Your Item</div>
+            <span className="close" onClick={handleCancel}>
+              &times;
+            </span>
+            <select
+              className="selectNum"
+              value={editedItemQ}
+              onChange={(e) => setEditedItemQ(Number(e.target.value))}
+            >
+              {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+                <option value={num} key={num}>
+                  {num}
+                </option>
+              ))}
+            </select>
+            <input
+              type="text"
+              className="editInp"
+              id="editInput"
+              autocomplete="off"
+              value={editedItemName}
+              onChange={(e) => setEditedItemName(e.target.value)}
+            />
+            <button className="editPopBtn" onClick={handleSave}>
+              Save
+            </button>
+          </div>
+        </div>
+      )}
       <Header />
       <div>
         <select
@@ -67,6 +139,7 @@ function App() {
         items={sortedItems}
         onDeleteItem={deleteItem}
         onCheckItem={checkItem}
+        onEditItem={editItem}
       />
       <div>
         <button onClick={handleClearList} className="clearBtn">

@@ -69,7 +69,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  width: 340px;
   border-radius: 20px;
   h2 {
     display: flex;
@@ -86,7 +86,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  width: 340px;
   border-radius: 20px;
   h2 {
     display: flex;
@@ -199,4 +199,70 @@ h3:hover {
 p {
   color: #17688a;
   font-size: 18px;
+}
+
+.modalhidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 140px;
+  width: 560px;
+  border-radius: 20px;
+  background-color: #190934;
+  border: 3px solid #e96559;
+}
+#editInput {
+  background-color: #17688a;
+  color: #fecf6a;
+  outline: none;
+  font-size: medium;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  border: none;
+}
+#editInput ::placeholder {
+  color: #190934;
+  transition: opacity 0.3s ease;
+}
+.modal-content input {
+  width: 240px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.modal-content div {
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  color: #e96559;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.editPopBtn {
+  border: none;
+  font-size: medium;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: #fecf6a;
+  color: #17688a;
+  height: 28px;
+  width: 64px;
+  transition: background-color 0.3s;
+}
+.editPopBtn:hover {
+  background-color: #17688a;
+  color: #fecf6a;
+  cursor: pointer;
+}
+.close {
+  color: #e96559;
+  font-size: 20px;
+  font-weight: bolder;
+  cursor: pointer;
+  margin-right: 10px;
 }
